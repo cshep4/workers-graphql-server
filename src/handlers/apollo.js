@@ -7,6 +7,8 @@ const KVCache = require('../kv-cache')
 const PokemonAPI = require('../datasources/pokeapi')
 const resolvers = require('../resolvers')
 const typeDefs = require('../schema')
+import { addMocksToSchema } from '@graphql-tools/mock';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
 const dataSources = () => ({
   pokemonAPI: new PokemonAPI(),
@@ -16,8 +18,9 @@ const kvCache = { cache: new KVCache() }
 
 const createServer = (graphQLOptions) =>
   new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: addMocksToSchema({
+        schema: makeExecutableSchema({ typeDefs, resolvers }),
+    }),
     introspection: true,
     dataSources,
     ...(graphQLOptions.kvCache ? kvCache : {}),
