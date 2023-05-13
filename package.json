@@ -10,6 +10,8 @@
     "graphql": "^15.6.0"
   },
   "devDependencies": {
+    "@graphql-tools/mock": "^8.7.20",
+    "@graphql-tools/schema": "^9.0.19",
     "prettier": "^2.4.1",
     "webpack": "^5.56.0"
   },
