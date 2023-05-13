@@ -7,8 +7,8 @@ const KVCache = require('../kv-cache')
 const PokemonAPI = require('../datasources/pokeapi')
 const resolvers = require('../resolvers')
 const typeDefs = require('../schema')
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { makeExecutableSchema } from '@graphql-tools/schema';
+const { addMocksToSchema } = require("@graphql-tools/mock")
+const { makeExecutableSchema } = require('@graphql-tools/schema')
 
 const dataSources = () => ({
   pokemonAPI: new PokemonAPI(),
