@@ -1,6 +1,4 @@
-const { gql } = require('apollo-server-cloudflare')
-
-module.exports = gql`
+module.exports = `
     type AuthResponse {
         id: String!
         jwt: String!
